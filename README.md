@@ -1,57 +1,41 @@
-Satis - Package Repository Generator
-====================================
+Satis fo Laravel Dependencies
+=============================
 
-Simple static Composer repository generator.
+This is a specialized version of Satis, since it is configured specifically to provide you a local mirror of Laravel Package dependendencies in your local Homestead box.
 
-It uses any composer.json file as input and dumps all the required (according
-to their version constraints) packages into a Composer Repository file.
 
-[![Build Status](https://travis-ci.org/composer/satis.svg?branch=master)](https://travis-ci.org/composer/satis)
+## Why?
 
-Usage
------
+* You want to be able to develop Laravel projects (composer install/composer update)  even without Internet connection
+* Failover in case GitHub is down
+* Speed - fetching dependencies might be slow when fetching it all over the network, local access is extremely fast
 
-- Download [Composer](https://getcomposer.org/download/): `curl -sS https://getcomposer.org/installer | php`
-- Install satis: `php composer.phar create-project composer/satis --stability=dev --keep-vcs`
-- Build a repository: `php bin/satis build <configuration file> <build-dir>`
 
-Read the more detailed instructions in the 
-[documentation](http://getcomposer.org/doc/articles/handling-private-packages-with-satis.md).
-
-Updating
---------
-
-Updating is as simple as running `git pull && php composer.phar install` in the satis directory.
-
-Contributing
+Installation
 ------------
 
-Please note that this project is released with a [Contributor Code of Conduct](http://contributor-covenant.org/version/1/2/0/).
-By participating in this project you agree to abide by its terms.
+You need to install [Homestead](https://laravel.com/docs/5.2/homestead) first in your local machine.
+Login to your Homestead box and clone the repository:
 
-Fork the project, create a feature branch, and send us a pull request.
+```
+homestead up;homestead ssh
+cd ~/Code
+git clone https://github.com/buonzz/satis-laravel.git
+cd satis-laravel
+```
 
-Requirements
-------------
+Fetch the dependencies of Satis
 
-PHP 5.3+
+```
+composer install
+```
 
-Authors
--------
+Build the mirror files
 
-Jordi Boggiano - <j.boggiano@seld.be> - <http://twitter.com/seldaek> - <http://seld.be><br />
-Nils Adermann - <naderman@naderman.de> - <http://twitter.com/naderman> - <http://www.naderman.de><br />
+```
+./build.sh
+```
 
-See also the list of [contributors](https://github.com/composer/satis/contributors) who participated in this project.
-
-Community Tools
----------------
-- [satis-go](https://github.com/benschw/satis-go) - A simple web server for managing Satis configuration and hosting the generated Composer repository.
-- [satisfy](https://github.com/ludofleury/satisfy) - Symfony based composer repository manager with a simple web UI.
+this might take a long time to fetch all the dependencies, so grab some coffee first :)
 
 
-
-License
--------
-
-Satis is licensed under the MIT License - see the LICENSE file for details
