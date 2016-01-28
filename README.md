@@ -38,7 +38,7 @@ Build the mirror files
 
 this might take a long time to fetch all the dependencies, so grab some coffee first :)
 
-Once done, add this sites: section on the ~/.homestead/Homestead.yaml of your host machine:
+Once done, add this to the sites: section on the ~/.homestead/Homestead.yaml of your host machine:
 
 ```
     - map: packages.homestead.app
