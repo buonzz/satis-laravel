@@ -1,7 +1,7 @@
-Satis fo Laravel Dependencies
+Satis for Laravel Dependencies
 =============================
 
-This is a specialized version of Satis, since it is configured specifically to provide you a local mirror of Laravel Package dependendencies in your local Homestead box.
+This is a specialized version of Satis, since it is configured specifically to provide you a local mirror of Laravel package dependendencies in your local Homestead box.
 
 
 ## Why?
@@ -37,5 +37,22 @@ Build the mirror files
 ```
 
 this might take a long time to fetch all the dependencies, so grab some coffee first :)
+
+Once done, add this sites: section on the ~/.homestead/Homestead.yaml of your host machine:
+
+```
+    - map: packages.homestead.app
+      to: /home/code/satis-laravel/web/dist
+```
+
+Then put this on your local hosts file so that you can access it from your machine.
+
+```
+192.168.10.10 packages.homestead.app
+```
+
+Once done, visit [http://packages.homestead.app](http://packages.homestead.app) on your web browser.
+Congrats! you now have a local mirror of the repository!
+
 
 
