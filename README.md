@@ -71,6 +71,7 @@ Congrats! you now have a local mirror of the repository!
 
 ## Usage
 
+### Per Project configuration
 put this in the composer.json of your Laravel project
 
 ```
@@ -79,10 +80,18 @@ put this in the composer.json of your Laravel project
         {
             "type": "composer",
             "url": "http://packages.homestead.app"
-        }
+        },
+        { "packagist": false}
     ]
 }
 ```
 
 everytime you hit composer update/install, it will now use the local repository inside the Vagrant box.
 
+### Global configuration
+
+If you don't want to edit each composer.json file of your project, you can just edit the  global composer config file. 
+
+```
+vi ~/.composer/config.json
+```
