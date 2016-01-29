@@ -55,4 +55,20 @@ Once done, visit [http://packages.homestead.app](http://packages.homestead.app) 
 Congrats! you now have a local mirror of the repository!
 
 
+## Usage
+
+put this in the composer.json of your Laravel project
+
+```
+{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.homestead.app"
+        }
+    ]
+}
+```
+
+everytime you hit composer update/install, it will now use the local repository inside the Vagrant box.
 
