@@ -42,10 +42,24 @@ Once done, add this to the sites: section on the ~/.homestead/Homestead.yaml of 
 
 ```
     - map: packages.homestead.app
-      to: /home/code/satis-laravel/web/dist
+      to: /home/vagrant/Code/satis-laravel/web/dist
 ```
 
-Then put this on your local hosts file so that you can access it from your machine.
+logout of the vm the re-run the provisioner
+
+```
+homestead provision
+```
+
+Login back to the VM and put this inside the homestead /etc/hosts file:
+
+```
+127.0.0.1 packages.homestead.app
+```
+This makes composer update/install to use the local repository.
+
+#### Accessing it outside VM
+Optionally, you can put this on your local hosts file so that you can access it from your machine.
 
 ```
 192.168.10.10 packages.homestead.app
